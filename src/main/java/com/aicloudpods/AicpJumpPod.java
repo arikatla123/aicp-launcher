@@ -16,19 +16,19 @@ public class AicpJumpPod {
                 .setConf("spark.kubernetes.namespace", "spark")
                 .setConf("spark.kubernetes.authenticate.driver.serviceAccountName", "spark-sa")
                 .setConf("spark.executor.instances", "2")
-                .setConf("spark.kubernetes.container.image", "aicp/aicpss:latest")
-                .setAppResource("local:///opt/spark/examples/jars/sparkonk8s.jar")
+                .setConf("spark.kubernetes.container.image", "aicp/ai-mi:latest")
+                .setAppResource("local:///opt/spark/examples/jars/sparkonminio.jar")
                 .setVerbose(true)
                 .launch();
 
-        /*InputStreamReaderRunnable inputStreamReaderRunnable = new InputStreamReaderRunnable(launch.getInputStream(), "spark stdout");
+        InputStreamReaderRunnable inputStreamReaderRunnable = new InputStreamReaderRunnable(launch.getInputStream(), "spark stdout");
         Thread inputThread = new Thread(inputStreamReaderRunnable, "input");
         inputThread.start();
 
 
         InputStreamReaderRunnable errorStreamReaderRunnable = new InputStreamReaderRunnable(launch.getInputStream(), "spark stderr");
         Thread errorThread = new Thread(inputStreamReaderRunnable, "error");
-        errorThread.start();*/
+        errorThread.start();
 
         launch.waitFor();
     }

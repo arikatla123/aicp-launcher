@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: aicp-launcher
+  name: aicp-launcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: aicp-launcher
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: aicp-launcher
+    spec:
+      containers:
+        - image: aicp/aicp-launcher:latest
+          name: aicp-launcher
+          resources: {}
+status: {}
