@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aicp-kafka-config
+data:
+  application.properties: |-
+    aicp.kafkaTopic=aicp-topic
+    aicp.kafkaGroupId=aicp_consumer_group
+    aicp.kafkaBootstrapServers=kafka.kafka.svc.cluster.local:9092

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: aicp-jump-pod
+  cloud:
+    kubernetes:
+      reload:
+        period: 1000
+        enabled: true
+      config:
+        enabled: true
+        name: k8config
+        namespace: spark
+        sources:
+          - name: aicp-kafka-config
