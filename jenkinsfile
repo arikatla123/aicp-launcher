@@ -96,29 +96,7 @@ spec:
 
     stage('Push') {
 
-      steps {
-
-        container('docker') {
-
-            withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
-
-                sh """
-
-                 docker login --username $user --password $pass
-
-                 docker build -t aicp/aicp-minio:$BUILD_NUMBER .
-
-                 docker push aicp/aicp-minio:$BUILD_NUMBER
-
-                """
-
-            }
-
-        }
-
-      }
-
-    }
+     
 
   }
 
